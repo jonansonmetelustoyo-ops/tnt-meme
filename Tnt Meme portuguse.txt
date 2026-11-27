@@ -1,0 +1,320 @@
+import flet as aplicacion
+import os
+
+ ############################################################################# variáveis globais ###########################################################################
+número_de_meme = -1
+número_do_elemento = -1
+rotas = []
+ ################################################################################## #################################################################################################### ####
+
+
+
+
+ ################################################################## Isso conta quantos memes você tem salvos para começar a executar o aplicativo ######### ######################################################################
+quantos_memes_existem = []
+
+for raiz, diretórios, arquivos in os.walk(‘C:\\Users\\DELL\\OneDrive\\Área de Trabalho\\meus_memes\\’):
+    for arquivo in arquivos:
+       quantos_memes_existem.append(os.path.join(raiz, arquivo))
+
+
+print(len(quantos_memes_existem))
+ #################################################################################################### ##############################################################################################################################################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################## MINHA_FUNÇÃO_PRINCIPAL ####################### #######################################################
+def MINHA_FUNÇÃO_PRINCIPAL(página:aplicação.Page):
+
+    página.bgcolor = “black”
+    página.title = “Tnt Memes - versão 6.3.0”
+    página.vertical_alignment = “center”
+    página.horizontal_alignment = “center”
+    rolagem = aplicacion.ListView(expand = True, spacing = 50, padding = 300)
+    global rotas
+    global quantos_memes_existem
+
+      #################################################################### esta função exibe as janelas e os memes ##################### ##########################################################
+    def janelas_e_memes():
+      ############################ ################################################# estas são variáveis globais ############################################## ##################################
+      global quantos_memes_existem
+      global numero_de_elemento
+      numero_de_elemento += 1
+      global rotas
+      rotas
+      global numero_de_meme
+      numero_de_meme = numero_de_elemento
+      ################################################################################################### #######################################################################################
+
+
+
+
+
+     ############################################################## isso armazena cada endereço de meme em uma lista  #######################################################################################
+      for raiz, diretórios, arquivos in os.walk(‘C:\\Usuário\\mipc\\Drive\\Área de Trabalho\\meus_memes\\’):
+        for arquivo in arquivos:
+          rutas.append(os.path.join(raiz, arquivo))
+     ######################### ################################################################################################### # # # ## #########################################################
+
+
+
+      ######################################### ######################## isso faz uma iteração em cada elemento ######################################################################## #####
+      ruta = rotas[número_do_elemento]
+      ################################################################################### #######################################################################################################
+
+      ################################################################### isso converte o endereço em uma imagem ######################### ########################################################
+      imagem = aplicacion.Image(src = rut, width = 3000, height = 490)
+      ###################################################################################### ####################################################################################################
+
+
+      ################################################################### este é o número do meme ########################## #################################################
+      texto = aplicacion.Text(value = “meme número  ”+str(numero_de_meme),size = 20)
+      ########### #################################################################################################### ###########################################################################
+
+      ###################### ############################################ Esta é a janela com o gradiente e seus elementos ############################################# #############################################
+      janela = aplicacion.Column([texto,imagem],alignment = aplicacion.MainAxisAlignment.CENTER)
+      fundo_com_borda = aplicacion. Container (content = janela, border_radius = 20, width = 3000, height = 599, gradient = aplicacion.LinearGradient([ aplicacion.Colors.RED, aplicacion.Colors.PINK, aplicacion.Colors.PURPLE]))
+      coluna_principal = aplicacion.Column([fundo_com_borda],alignment = aplicacion.CrossAxisAlignment.CENTER )
+     ############################################################ #################################################################################################### ##########################
+
+
+
+
+
+
+
+     ################################################################# Isso adiciona o fundo com borda e o meme com número ao rolo #################### ######################################################
+      aplicando_o_escrol_a = [coluna_principal]
+      escrol.controls.extend(aplicando_o_escrol_a)
+      ##################################################################################################### #####################################################################################
+
+
+
+
+
+      folha.update()
+      pass
+   ######################################################################################### #################################################################################################
+
+
+
+
+
+   ################################################################################## esta função apaga memes #############################################################################
+    def apagar_memes(event):
+
+        ##################################### isso contém os dados dos dois botões: -> remover_texto e APAGAR #############################################################################
+        ação = event.control.data
+        ########################################################################################## ################################################################################################
+
+
+
+
+
+
+
+
+        ######################################################## tudo isso acontece se você clicar em “Apagar” ########################################################################################### ###
+        if ação == “DELETE”:
+          if valor_da_barra_de_pesquisa:
+            valor_da_barra_de_pesquisa
+            tenho_que_excluir_o_meme_número = rotas[int(valor_da_barra_de_pesquisa)]
+            os.remove(str(meme_a_ser_excluído))
+            rutas.remove(meme_a_ser_excluído)
+            testo.value = “meme EXCLUÍDO com sucesso. Reinicie o aplicativo para ver as alterações”
+            print(meme_a_ser_excluído)
+        ################################################################################################### #######################################################################################
+
+        ############################################################## tudo isso acontece se você clicar em “remover_texto” ########################## ########################################################
+        if ação == “REMOVER_TEXTO”:
+            testo.value = “”
+       ############### #################################################################################################### #######################################################################
+
+
+
+
+
+
+
+
+
+                hoja.update()
+
+
+        pass
+    ####################################################################################### ###################################################################################################
+
+    ################################### isso conta quantos memes você tem e exibe o texto em uma cor ou outra, dependendo da quantidade ############################################ ########
+    def contador_de_memes():
+
+
+
+       ############################################################# isso adiciona um (s) ao texto “meme” se não for apenas um ###########################################################################
+
+        men = “meme”
+        if len(quantos_memes_tem) == 1:
+            men = “meme”
+        else:
+            men = “memes”
+        ##################################################### #################################################################################################### #################################
+
+
+
+
+
+
+########################################################## este é o texto base ############################################################################################### ###########
+        quantos_memes_tenho = aplicacion.Text(value = “tenho ” + str(len(quantos_memes_hay)) + men, size = 20)
+        ######################################### #################################################################################################### #############################################
+
+
+        ######################### Isso faz com que, dependendo de quantos memes você tiver, o texto fique em amarelo ou vermelho como aviso ################################################## #####
+
+        if len(quantos_memes_hay) >= 50:
+            quantos_memes_tengo = aplicacion.Text(value =“tenho ” + str(len(quantos_memes_hay)) + men ,size = 20,color = aplicacion.Colors.YELLOW)
+
+        if len(quantos_memes_existem) >= 90:
+            quantos_memes_tenho = aplicacion.Text(value =“tenho ” + str(len(quantos_memes_existem)) + men, size = 20, color = aplicacion.Colors.RED)
+       ######################### #################################################################################################### #############################################################
+
+
+
+        return quantos_memes_eu_tenho
+
+        pass
+
+
+
+    ################################################################################################### #######################################################################################
+
+
+
+
+
+
+
+
+
+    ################ (isso executa o aplicativo) dependendo se você tem memes, isso exibirá esses memes, mas, caso contrário, exibirá uma notificação informando que você não tem memes  ########################################### ##########################################
+    if len(quantos_memes_tem) > 0 :
+     for carregar_imagens in range(len(quantos_memes_tem)):
+         janelas_e_memes()
+
+    elif len(quantos_memes_tem) == 0 :
+
+
+
+
+         ############################################################### endereço da notificação #############################################################################################
+         imagem2 = aplicacion.Image(src = “C:\\UsUARIO\\MACCC\\Orive\\Área de Trabalho\\notificações_tnt\\Z_Tnt_Meme_tedice.png”, width = 3000, height = 490)
+         ################################################################################################### #######################################################################################
+
+         ############################################################### esta é a janela com gradiente ############################# ############################################################
+         janela = aplicacion.Column([imagem2],alignment = aplicacion.MainAxisAlignment.CENTER)
+         fundo_com_borda = aplicacion.Container (content = janela, border_radius = 20, width = 3000, height = 599, gradient = aplicacion.LinearGradient([ aplicacion.Colors.RED, aplicacion.Colors.PINK, aplicacion.Colors.PURPLE]))
+         coluna = aplicacion.Column([fundo_com_borda], alinhamento = aplicacion.CrossAxisAlignment.CENTER)
+         aplicando_rolagem_a = [coluna]
+         rolagem.controls.extend(aplicando_rolagem_a)
+         ############################ #################################################################################################### ##########################################################
+
+
+    ################################################################################################### #################################################################################################### ##############
+
+
+
+
+
+
+
+    ############################################################ esta é a notificação secundária que aparece ao lado da barra_de_busca  ##########################################################
+    texto = aplicacion.Text(value = “”)
+
+    remover_texto = aplicacion.IconButton(aplicacion.Icons.CANCEL, icon_color = aplicacion.Colors.RED, on_click = apagar_memes, data = “REMOVER_TEXTO”) # remover texto
+    linha = aplicacion.Row([remover_texto, texto, contador_de_memes()])
+    ################################################################################################### ############################################################################################
+
+
+
+
+    ######################################   Estes são os elementos para excluir um meme específico  ############################################## ################################
+    barra_de_busca = aplicacion.TextField(value=“”, hint_text = “digite o número do meme”, text_align=aplicacion.TextAlign.CENTER, width=300)#[campo de texto]
+    EXCLUIR = aplicacion.IconButton(aplicacion.Icons.DELETE, icon_color = aplicacion.Colors.RED, on_click = borar_memes, data = “DELETE”) # EXCLUIR
+    linha_da_consola = aplicacion.Row([barra_de_busca, EXCLUIR]) # linha
+    ################################################################################################### #############################################################################
+
+    ################################################ esta é a barra e aplica seus elementos ########################################### #############################################
+    linha_com_elementos = aplicacion.Row([linha_da_consola, linha], alignment = aplicacion.CrossAxisAlignment.CENTER)
+    barra = aplicacion. Container ( linha_com_elementos, width = 10000, height = 60, border_radius = 5, bgcolor = aplicacion.Colors.ON_ERROR, padding = 10)
+    ########################################## #################################################################################################### ###################################
+
+
+    hoja.add(escrol,barra)
+    # fim da função principal
+    pass
+############################################################################ #################################################################################################### ##########
+
+
+################################################################# isso executa a função principal ############### #############################################################
+aplicacion.run(MINHA_FUNÇÃO_PRINCIPAL)
+#################################################################################################### ######################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
