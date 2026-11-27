@@ -13,7 +13,7 @@ rotas = []
  ################################################################## Isso conta quantos memes você tem salvos para começar a executar o aplicativo ######### ######################################################################
 quantos_memes_existem = []
 
-for raiz, diretórios, arquivos in os.walk(‘C:\\Users\\DELL\\OneDrive\\Área de Trabalho\\meus_memes\\’):
+for raiz, diretórios, arquivos in os.walk(‘C:\\UsUARIO\\mACCCC\\Orive\\Área de Trabalho\\meus_memes\\’):
     for arquivo in arquivos:
        quantos_memes_existem.append(os.path.join(raiz, arquivo))
 
